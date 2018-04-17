@@ -8,8 +8,7 @@ import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 export class NewsItemComponent implements OnInit {
 
   @Input() item = null;
-  @Input() favorited = false;
-  @Output() onFavorited = new EventEmitter<boolean>();
+  @Output() onFavorited = new EventEmitter<{guid: string, favorited: boolean}>();
 
   constructor() {
   }
@@ -17,8 +16,11 @@ export class NewsItemComponent implements OnInit {
   ngOnInit() {
   }
 
-  onFavorite(favorited: any){
-    this.onFavorited.emit(favorited);
-    this.favorited = favorited;
+  onFavorite(guid: string, favorited: boolean) {
+    this.onFavorited.emit({
+      guid: guid,
+      favorited: favorited
+    });
+    this.item.favorited = favorited;
   }
 }

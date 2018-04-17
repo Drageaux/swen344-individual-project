@@ -2,7 +2,10 @@
   <a class="card-body"
      href="{{item.link}}" target="_blank">
 
-    <strong class="card-title">({{item.sport}}) {{item.title}}</strong><br>
+    <strong class="card-title">
+      <span class="badge badge-pill badge-danger">{{item.sport}}</span>
+      {{item.title}}
+    </strong><br>
     <p class="card-text">{{item.content}}</p>
     <p class="card-text">
 
@@ -10,10 +13,10 @@
   </a>
   <div class="card-footer">
     <small class="text-muted">{{item.pubDate}}</small>
-    <a class="float-right" (click)="onFavorite(!favorited)">
+    <a class="float-right" (click)="onFavorite(item.guid,!item.favorited)">
       <i class="fas fa-heart fa-lg"
-         [class.fas]="favorited"
-         [class.far]="!favorited"></i>
+         [class.fas]="item.favorited"
+         [class.far]="!item.favorited"></i>
     </a>
   </div>
 </div>

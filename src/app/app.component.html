@@ -4,6 +4,7 @@
 
 <div class="container-fluid">
   <h2 class="header-title">News Feed</h2>
+  <hr>
 
   <div class="row">
     <!--Filters-->
@@ -27,7 +28,7 @@
         *ngFor="let i of newsItems
                 | filter: 'sport':filterOuts
                 | sortBy: 'pubDate':'descending'"
-        [item]="i">
+        [item]="i" (onFavorited)="onFavorited($event)">
       </app-news-item>
     </div>
   </div>
