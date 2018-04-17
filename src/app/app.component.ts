@@ -24,7 +24,9 @@ export class AppComponent implements OnInit {
   private sportsList: string[] = ['NFL', 'NHL', 'MLB'];
   private newsItems: NewsItem[] = [];
   private favoriteNews: string[] = JSON.parse(localStorage.getItem('favoriteNews')) || [];
+
   private filterOuts = []; // if sport is in this list, hide corresponding news
+  private favoritesOnly: boolean = false;
 
   constructor(private http: HttpClient) {
   }

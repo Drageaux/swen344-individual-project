@@ -14,12 +14,21 @@
         <div class="card-text">
           <label *ngFor="let sport of sportsList"
                  class="d-block">
-            <input type="checkbox"
+            <input type="checkbox" checked
                    aria-label="Checkbox for sports filter"
-                   checked (click)="toggleFilter(sport)">
+                   (click)="toggleFilter(sport)">
             {{sport}}
           </label>
         </div>
+        <hr>
+        <h5 class="card-title">Filter by Favorite</h5>
+        <label class="d-block">
+          <input type="checkbox"
+                 aria-label="Checkbox for favorites filter"
+                 [checked]="favoritesOnly"
+                 (change)="favoritesOnly = !favoritesOnly">
+          Favorites Only
+        </label>
       </div>
     </div>
     <!--News Feed-->
@@ -28,7 +37,8 @@
         *ngFor="let i of newsItems
                 | filter: 'sport':filterOuts
                 | sortBy: 'pubDate':'descending'"
-        [item]="i" (onFavorited)="onFavorited($event)">
+        [item]="i" [favoritesOnly]="favoritesOnly"
+        (onFavorited)="onFavorited($event)">
       </app-news-item>
     </div>
   </div>

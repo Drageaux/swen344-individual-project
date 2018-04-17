@@ -1,4 +1,5 @@
-<div class="card border-secondary mb-3 news-item">
+<div class="card border-secondary mb-3 news-item"
+  [class.hidden]="favoritesOnly && !item.favorited">
   <a class="card-body"
      href="{{item.link}}" target="_blank">
 
