@@ -5,6 +5,7 @@ import {HttpClientModule} from '@angular/common/http';
 
 import {AppComponent} from './app.component';
 import {NewsItemComponent} from './components/news-item/news-item.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import {NewsItemComponent} from './components/news-item/news-item.component';
   ],
   declarations: [
     AppComponent,
-    NewsItemComponent
+    NewsItemComponent,
+    FilterPipe
   ],
   providers: [],
   bootstrap: [AppComponent]

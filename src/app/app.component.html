@@ -5,7 +5,25 @@
 <div class="container-fluid">
   <h2 class="header-title">News Feed</h2>
 
-  <div id="news-feed">
-    <app-news-item *ngFor="let i of newsItems" [item]="i"></app-news-item>
+  <div class="row" style="margin: 0">
+    <!--Filters-->
+    <div id="filters" class="col-sm-3" style="height: auto; padding: 0">
+      <div class="card" style="padding: 7px 15px">
+        <h5 class="card-title">Filter by Sports</h5>
+        <div class="card-text">
+          <label *ngFor="let sport of sportsList"
+                 class="d-block">
+            <input type="checkbox"
+                   aria-label="Checkbox for sports filter"
+                   checked (click)="toggleFilter($event, sport)">
+            {{sport}}
+          </label>
+        </div>
+      </div>
+    </div>
+    <!--News Feed-->
+    <div id="news-feed" class="col-sm-9">
+      <app-news-item *ngFor="let i of newsItems | filter: 'sport':filterOuts" [item]="i"></app-news-item>
+    </div>
   </div>
 </div>

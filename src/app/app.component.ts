@@ -21,7 +21,9 @@ export class AppComponent implements OnInit {
 
   private rssToJsonServiceBaseUrl: string = 'https://rss2json.com/api.json?rss_url=';
   private sportsList: string[] = ['NFL', 'NHL', 'MLB'];
-  newsItems: any[] = [];
+  private newsItems: any[] = [];
+
+  private filterOuts = [];
 
   constructor(private http: HttpClient) {
   }
@@ -47,6 +49,16 @@ export class AppComponent implements OnInit {
 
         console.log(this.newsItems)
       });
+  }
+
+  toggleFilter($event: any, sport: string) {
+    let index = this.filterOuts.indexOf(sport);
+    if (index === -1){
+      this.filterOuts.push(sport);
+    } else {
+      this.filterOuts.splice(index, 1);
+    }
+    console.log(this.filterOuts);
   }
 
   /****************
