@@ -5,7 +5,8 @@ import {HttpClientModule} from '@angular/common/http';
 
 import {AppComponent} from './app.component';
 import {NewsItemComponent} from './components/news-item/news-item.component';
-import { FilterPipe } from './pipes/filter.pipe';
+import {FilterPipe} from './pipes/filter.pipe';
+import {SortByPipe} from "./pipes/sort-by.pipe";
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { FilterPipe } from './pipes/filter.pipe';
   declarations: [
     AppComponent,
     NewsItemComponent,
-    FilterPipe
+    FilterPipe,
+    SortByPipe
   ],
   providers: [],
   bootstrap: [AppComponent]

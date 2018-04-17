@@ -23,7 +23,12 @@
     </div>
     <!--News Feed-->
     <div id="news-feed" class="col-sm-9">
-      <app-news-item *ngFor="let i of newsItems | filter: 'sport':filterOuts" [item]="i"></app-news-item>
+      <app-news-item
+        *ngFor="let i of newsItems
+                | filter: 'sport':filterOuts
+                | sortBy: 'pubDate':'descending'"
+        [item]="i" class="card" style="margin-bottom: 5px">
+      </app-news-item>
     </div>
   </div>
 </div>
