@@ -1,3 +1,11 @@
 <nav class="navbar navbar-dark bg-dark">
   <a class="navbar-brand" href="#"><strong>Individual Project</strong></a>
 </nav>
+
+<div class="container-fluid">
+  <h2 class="header-title">News Feed</h2>
+
+  <div *ngIf="rssJson" id="news-feed">
+    <app-news-item *ngFor="let i of rssJson.items" [item]="i"></app-news-item>
+  </div>
+</div>
