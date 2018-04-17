@@ -20,18 +20,23 @@ import {RssJson} from './classes/rss-json';
 export class AppComponent implements OnInit {
 
   private rssToJsonServiceBaseUrl: string = 'https://rss2json.com/api.json?rss_url=';
+  private sportsList: string[] = ['NFL', 'NHL', 'MLB'];
   newsItems: any[] = [];
 
   constructor(private http: HttpClient) {
   }
 
   ngOnInit() {
-    let nflRss = this.getRss('NFL');
-    let nhlRss = this.getRss('NHL');
-    let mlbRss = this.getRss('MLB');
+    // compiling a list of HTTP calls from all types of listed sports
+    let rssCalls = [];
+    this.sportsList.forEach((sport) => {
+      rssCalls.push(this.getRss(sport));
+    });
 
-    forkJoin([nflRss, nhlRss, mlbRss])
+    // one single place for sending all requests
+    forkJoin(rssCalls)
       .subscribe(res => {
+        // wrap as a list of RSS responses in JSON form
         let rssResults = res as RssJson[];
         rssResults.forEach((rss) => {
           rss.items.forEach((item) => {
@@ -42,16 +47,6 @@ export class AppComponent implements OnInit {
 
         console.log(this.newsItems)
       });
-
-    // this.getRss()
-    //
-    //   .subscribe(res => {
-    //       this.rssJson = res ;
-    //       if (this.rssJson){
-    //         console.log(this.rssJson.items)
-    //       }
-    //     }
-    //   )
   }
 
   /****************
