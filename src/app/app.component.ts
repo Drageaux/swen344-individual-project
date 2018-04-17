@@ -51,7 +51,7 @@ export class AppComponent implements OnInit {
       });
   }
 
-  toggleFilter($event: any, sport: string) {
+  toggleFilter(sport: string) {
     let index = this.filterOuts.indexOf(sport);
     if (index === -1){
       this.filterOuts.push(sport);
