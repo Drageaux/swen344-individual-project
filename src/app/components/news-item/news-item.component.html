@@ -1,11 +1,19 @@
-<div class="card border-secondary mb-2 news-item">
+<div class="card border-secondary mb-3 news-item">
   <a class="card-body"
      href="{{item.link}}" target="_blank">
 
     <strong class="card-title">({{item.sport}}) {{item.title}}</strong><br>
     <p class="card-text">{{item.content}}</p>
     <p class="card-text">
-      <small class="text-muted">{{item.pubDate}}</small>
+
     </p>
   </a>
+  <div class="card-footer">
+    <small class="text-muted">{{item.pubDate}}</small>
+    <a class="float-right" (click)="onFavorite(!favorited)">
+      <i class="fas fa-heart fa-lg"
+         [class.fas]="favorited"
+         [class.far]="!favorited"></i>
+    </a>
+  </div>
 </div>
