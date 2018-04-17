@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, Output, EventEmitter, OnChanges} from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {NewsItem} from "../../classes/news-item";
 
 @Component({
@@ -6,7 +6,7 @@ import {NewsItem} from "../../classes/news-item";
   templateUrl: './news-item.component.html',
   styleUrls: ['./news-item.component.css']
 })
-export class NewsItemComponent implements OnInit, OnChanges {
+export class NewsItemComponent implements OnInit {
 
   @Input() item: NewsItem = null;
   @Input() favoritesOnly: boolean = false;
@@ -16,10 +16,6 @@ export class NewsItemComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-  }
-
-  ngOnChanges() {
-    console.log(this.favoritesOnly)
   }
 
   onFavorite(guid: string, favorited: boolean) {
