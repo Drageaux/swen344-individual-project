@@ -1,8 +1,9 @@
-<a class="nav-link" data-toggle="modal" data-target="#login-modal">
+<a *ngIf="!loggedIn" class="nav-link" data-toggle="modal" data-target="#login-modal">
   Login
 </a>
+<a *ngIf="loggedIn" class="nav-link">Log Out</a>
 
-<div id="login-modal" class="modal fade" tabindex="-1" role="dialog">
+<div *ngIf="!loggedIn" id="login-modal" class="modal fade" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -13,13 +14,18 @@
       </div>
 
       <div class="modal-body">
-        <form>
+        <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
           <div class="form-group">
-            <input type="email" class="form-control" id="login-username"
-                   placeholder="Enter username">
+            <input type="email" class="form-control"
+                   id="login-username" name="username"
+                   placeholder="Enter username"
+                   [(ngModel)]="model.username">
           </div>
           <div class="form-group">
-            <input type="password" class="form-control" id="login-password" placeholder="Password">
+            <input type="password" class="form-control"
+                   id="login-password" name="password"
+                   placeholder="Password"
+                   [(ngModel)]="model.password">
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
@@ -33,4 +39,6 @@
   </div>
 </div>
 
-<app-signup-modal></app-signup-modal>
+<app-signup-modal *ngIf="!loggedIn"
+                  (onSignUpSuccess)="onSignUpSuccess($event)">
+</app-signup-modal>

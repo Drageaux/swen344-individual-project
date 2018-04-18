@@ -10,9 +10,8 @@ declare var $;
 })
 export class SignupModalComponent implements OnInit {
 
-  // @Output() onSignUpSuccess = new EventEmitter<UsernamePassword>();
-  model: User = new User('', '');
-  submitted = false;
+  @Output() onSignUpSuccess = new EventEmitter<User>();
+  private model: User = new User('', '');
   private usersData: User[] = JSON.parse(localStorage.getItem('usersData') || '[]');
 
   constructor() {
@@ -22,7 +21,6 @@ export class SignupModalComponent implements OnInit {
   }
 
   onSubmit() {
-    this.submitted = true;
     let existingUser = this.usersData.filter((user) => user.username == this.model.username)[0];
     if (existingUser) {
       // handle duplicate user
@@ -32,7 +30,9 @@ export class SignupModalComponent implements OnInit {
       if (this.model.password) {
         this.usersData.push(this.model);
         localStorage.setItem('usersData', JSON.stringify(this.usersData));
-        $('#signup-modal').modal('hide')
+
+        $('#signup-modal').modal('hide'); // close modal for better UX
+        this.onSignUpSuccess.emit(this.model);
       }
     }
   }
