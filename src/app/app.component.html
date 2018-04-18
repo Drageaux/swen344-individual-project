@@ -1,11 +1,16 @@
-<nav class="navbar navbar-dark bg-dark">
+<nav class="navbar navbar-expand navbar-dark bg-dark"
+     style="justify-content: space-between;">
   <a class="navbar-brand" href="#"><strong>Individual Project</strong></a>
+  <ul class="nav navbar-nav navbar-right float-right">
+    <li class="nav-item dropdown">
+      <app-login-modal></app-login-modal>
+    </li>
+  </ul>
 </nav>
 
 <div class="container-fluid">
   <h2 class="header-title">News Feed</h2>
   <hr>
-
   <div class="row">
     <!--Filters-->
     <div id="filters" class="col-sm-3 mb-3">
@@ -43,3 +48,4 @@
     </div>
   </div>
 </div>
+

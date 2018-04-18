@@ -5,20 +5,26 @@ import {HttpClientModule} from '@angular/common/http';
 
 import {AppComponent} from './app.component';
 import {NewsItemComponent} from './components/news-item/news-item.component';
+import {LoginModalComponent} from './components/login-modal/login-modal.component';
 import {FilterPipe} from './pipes/filter.pipe';
 import {SortByPipe} from "./pipes/sort-by.pipe";
+import {FormsModule} from "@angular/forms";
+import { SignupModalComponent } from './components/signup-modal/signup-modal.component';
 
 
 @NgModule({
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   declarations: [
     AppComponent,
     NewsItemComponent,
     FilterPipe,
-    SortByPipe
+    SortByPipe,
+    LoginModalComponent,
+    SignupModalComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

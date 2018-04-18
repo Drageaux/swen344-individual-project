@@ -1,5 +1,5 @@
 <div class="card border-secondary mb-3 news-item"
-  [class.hidden]="favoritesOnly && !item.favorited">
+     [class.hidden]="favoritesOnly && !item.favorited">
   <a class="card-body"
      href="{{item.link}}" target="_blank">
 
@@ -7,9 +7,8 @@
       <span class="badge badge-pill badge-danger">{{item.sport}}</span>
       {{item.title}}
     </strong><br>
-    <p class="card-text">{{item.content}}</p>
     <p class="card-text">
-
+      {{item.content && item.content !=='null' ? item.content : ''}}
     </p>
   </a>
   <div class="card-footer">
