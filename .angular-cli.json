@@ -22,7 +22,9 @@
         "styles.css",
         "assets/fontawesome/css/fontawesome-all.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "assets/dateformat.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

@@ -10,6 +10,7 @@ import {FilterPipe} from './pipes/filter.pipe';
 import {SortByPipe} from "./pipes/sort-by.pipe";
 import {FormsModule} from "@angular/forms";
 import { SignupModalComponent } from './components/signup-modal/signup-modal.component';
+import { LastLoginComponent } from './components/last-login/last-login.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { SignupModalComponent } from './components/signup-modal/signup-modal.com
     FilterPipe,
     SortByPipe,
     LoginModalComponent,
-    SignupModalComponent
+    SignupModalComponent,
+    LastLoginComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

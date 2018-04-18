@@ -4,10 +4,19 @@
 <a *ngIf="loggedIn" class="nav-link dropdown-toggle" href="#"
    id="navbar-dropdown" role="button" data-toggle="dropdown"
    aria-haspopup="true" aria-expanded="false">
-  {{model.username}}
+  <i class="fas fa-user-circle"></i> {{model.username}}
 </a>
 <div *ngIf="loggedIn" class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-dropdown">
-  <a class="dropdown-item" (click)="logOut()">Log Out</a>
+  <app-last-login
+    class="dropdown-item"
+    [username]="model.username"
+    #lastLogin>
+  </app-last-login>
+  <div class="dropdown-divider"></div>
+  <a class="dropdown-item" (click)="logOut()">
+    <i class="fas fa-sign-out-alt"></i>
+    Log Out
+  </a>
 </div>
 
 <div *ngIf="!loggedIn" id="login-modal" class="modal fade" tabindex="-1" role="dialog">

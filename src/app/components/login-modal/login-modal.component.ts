@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {User} from "../../classes/user";
+import {LastLoginComponent} from "../last-login/last-login.component";
 
 declare var $;
 
@@ -10,7 +11,8 @@ declare var $;
 })
 export class LoginModalComponent implements OnInit {
 
-  loggedIn = false;
+  @ViewChild('lastLogin') lastLogin: LastLoginComponent;
+  private loggedIn = false;
   private model: User = JSON.parse(localStorage.getItem('currentUser')) || new User('', '');
   private usersData: User[] = JSON.parse(localStorage.getItem('usersData') || '[]');
 
