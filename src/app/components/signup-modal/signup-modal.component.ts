@@ -21,6 +21,11 @@ export class SignupModalComponent implements OnInit {
   }
 
   onSubmit() {
+    if (!this.model.username || !this.model.password) {
+      alert('Please fill in the required fields.');
+      return;
+    }
+
     let existingUser = this.usersData.filter((user) => user.username == this.model.username)[0];
     if (existingUser) {
       // handle duplicate user
