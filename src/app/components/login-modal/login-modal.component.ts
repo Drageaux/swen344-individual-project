@@ -20,10 +20,10 @@ export class LoginModalComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.onSubmit();
+    this.onSubmit(null);
   }
 
-  onSubmit() {
+  onSubmit($event) {
     let findUser = this.usersData.filter((user) =>
       this.model.username === user.username && this.model.password === user.password
     )[0];
@@ -32,6 +32,11 @@ export class LoginModalComponent implements OnInit {
       localStorage.setItem('currentUser', JSON.stringify(this.model));
 
       $('#login-modal').modal('hide'); // close modal for better UX
+    } else {
+      if ($event) {
+        // don't alert if not an event
+        alert('Wrong username or password');
+      }
     }
   }
 
