@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {User} from "../../classes/user";
 
 @Component({
   selector: 'app-login-modal',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginModalComponent implements OnInit {
 
-  constructor() { }
+  model = new User('', '');
+  submitted = false;
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
+  onSubmit() {
+    this.submitted = true
+  }
 }

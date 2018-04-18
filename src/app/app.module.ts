@@ -10,6 +10,7 @@ import {FilterPipe} from './pipes/filter.pipe';
 import {SortByPipe} from "./pipes/sort-by.pipe";
 import {AuthService} from "./services/auth.service";
 import {FormsModule} from "@angular/forms";
+import { SignupModalComponent } from './components/signup-modal/signup-modal.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {FormsModule} from "@angular/forms";
     NewsItemComponent,
     FilterPipe,
     SortByPipe,
-    LoginModalComponent
+    LoginModalComponent,
+    SignupModalComponent
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
