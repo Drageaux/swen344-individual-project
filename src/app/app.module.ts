@@ -8,7 +8,6 @@ import {NewsItemComponent} from './components/news-item/news-item.component';
 import {LoginModalComponent} from './components/login-modal/login-modal.component';
 import {FilterPipe} from './pipes/filter.pipe';
 import {SortByPipe} from "./pipes/sort-by.pipe";
-import {AuthService} from "./services/auth.service";
 import {FormsModule} from "@angular/forms";
 import { SignupModalComponent } from './components/signup-modal/signup-modal.component';
 
@@ -27,7 +26,7 @@ import { SignupModalComponent } from './components/signup-modal/signup-modal.com
     LoginModalComponent,
     SignupModalComponent
   ],
-  providers: [AuthService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {

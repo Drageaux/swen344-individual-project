@@ -33,6 +33,12 @@ export class LoginModalComponent implements OnInit {
     }
   }
 
+  logOut() {
+    localStorage.removeItem('currentUser');
+    this.model = new User('', '');
+    this.loggedIn = false;
+  }
+
   onSignUpSuccess($event: User) {
     this.model = $event;
     this.loggedIn = true;
